@@ -13,18 +13,17 @@ public class IoClient {
     BufferedReader in = null;
     PrintWriter out = null;
     try {
-      socket = new Socket("localhost",8070);
+      socket = new Socket("localhost",7654);
 
       out  = new PrintWriter(socket.getOutputStream(),true);
-      out.println("测试啦1");
+      out.println("测试啦1\n");
       out.flush();
 
-      in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-      String response = in.readLine();
-      System.out.println("返回:"+response);
+//      in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+//      String response = in.readLine();
+//      System.out.println("返回:"+response);
     } catch (IOException e) {
       e.printStackTrace();
     }
   }
-
 }
