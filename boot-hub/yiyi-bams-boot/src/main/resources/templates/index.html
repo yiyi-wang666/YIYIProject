@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页</title>
+</head>
+<body>
+<h1>菜单</h1>
+<div th:each="menu:${menuList}">
+    <a th:href="${menu.url}" ><h4 th:text="${menu.name}"></h4></a>
+    <div th:each="child:${menu.childrens}" style="margin-left: 50px">
+        <a th:href="${child.url}" > <h4 th:text="${child.name}"></h4></a>
+    </div>
+</div>
+</br>
+<a href="/logout">退出登录</a>
+</body>
+</html>
+
+index.html

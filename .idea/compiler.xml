@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="mybatis-configuration" />
+        <module name="cloud-eureka-server" />
+        <module name="manager-process" />
+        <module name="business-domain" />
+        <module name="redis-common" />
+        <module name="yiyi-bams-boot" />
+        <module name="yiyi-spring-source" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="core-hub" target="1.8" />
+      <module name="tech" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="auto-configuration" options="-parameters" />
+      <module name="boot-hub" options="-parameters" />
+      <module name="business-domain" options="-parameters" />
+      <module name="business-hub" options="-parameters" />
+      <module name="business-process" options="-parameters" />
+      <module name="cloud-component-hub" options="-parameters" />
+      <module name="cloud-eureka-server" options="-parameters" />
+      <module name="core-hub" options="-parameters" />
+      <module name="manager-process" options="-parameters" />
+      <module name="mybatis-configuration" options="-parameters" />
+      <module name="redis-common" options="-parameters" />
+      <module name="tech" options="-parameters" />
+      <module name="technology-hub" options="-parameters" />
+      <module name="yiyi-bams-boot" options="-parameters" />
+      <module name="yiyi-spring-source" options="-parameters" />
+    </option>
+  </component>
+</project>

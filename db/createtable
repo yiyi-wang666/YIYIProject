@@ -1,0 +1,8 @@
+CREATE table t_user (
+	id INT (10),
+	NAME varchar(50),
+	user_name varchar(50),
+	password varchar(100),
+  primary key(id)
+) engine=innodb auto_increment=1 DEFAULT CHARSET=utf8
+
