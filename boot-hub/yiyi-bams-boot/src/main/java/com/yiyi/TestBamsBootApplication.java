@@ -8,15 +8,12 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-@SpringBootApplication
-@EnableEurekaClient
-@RestController
-@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
-public class BamsBootApplication {
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+public class TestBamsBootApplication {
 
     public static void main(String[] args) {
         ///ShutdownHookThread shutdownHookThread = new ShutdownHookThread(Thread.currentThread());
-        SpringApplication.run(BamsBootApplication.class, args);
+        SpringApplication.run(TestBamsBootApplication.class, args);
     }
 
     @RequestMapping("/index")

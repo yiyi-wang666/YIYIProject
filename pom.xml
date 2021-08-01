@@ -12,6 +12,7 @@
         <module>technology-hub</module>
         <module>business-hub</module>
         <module>cloud-component-hub</module>
+        <module>yiyi-spring-boot</module>
     </modules>
     <packaging>pom</packaging>
 

@@ -5,17 +5,12 @@
     <file url="file://$PROJECT_DIR$/boot-hub/yiyi-bams-boot/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/boot-hub/yiyi-spring-source/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/boot-hub/yiyi-spring-source/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/business-hub/business-domain/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/business-hub/business-domain/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/business-hub/business-process/manager-process/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/business-hub/business-process/manager-process/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-component-hub/cloud-eureka-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/cloud-component-hub/cloud-eureka-server/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/technology-hub/auto-configuration/mybatis-configuration/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/technology-hub/auto-configuration/mybatis-configuration/src/main/resources" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/technology-hub/auto-configuration/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/technology-hub/auto-configuration/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/technology-hub/redis-common/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/technology-hub/redis-common/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/yiyi-spring-boot/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/yiyi-spring-boot/src/main/resources" charset="UTF-8" />
   </component>
 </project>

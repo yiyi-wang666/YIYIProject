@@ -1,22 +1,16 @@
-package com.yiyi;
+package yiyi.test;
 
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@SpringBootApplication
-@EnableEurekaClient
-@RestController
-@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class})
-public class BamsBootApplication {
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
+public class TestSpringBootApplication {
 
     public static void main(String[] args) {
         ///ShutdownHookThread shutdownHookThread = new ShutdownHookThread(Thread.currentThread());
-        SpringApplication.run(BamsBootApplication.class, args);
+        SpringApplication.run(TestSpringBootApplication.class, args);
     }
 
     @RequestMapping("/index")

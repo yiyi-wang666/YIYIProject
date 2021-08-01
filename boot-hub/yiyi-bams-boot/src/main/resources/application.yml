@@ -1,0 +1,13 @@
+server:
+  port: 9022
+spring:
+  application:
+    name: yiyi-bams-boot
+logging:
+  config: classpath:logback-spring.xml
+eureka:
+  client:
+  register-with-eureka: false
+  fetchRegistry: false
+  server:
+    waitTimeInMsWhenSyncEmpty: 0
