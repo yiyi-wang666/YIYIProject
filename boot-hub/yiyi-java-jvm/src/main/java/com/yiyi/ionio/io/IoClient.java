@@ -19,9 +19,9 @@ public class IoClient {
       out.println("测试啦1\n");
       out.flush();
 
-//      in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-//      String response = in.readLine();
-//      System.out.println("返回:"+response);
+      in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+      String response = in.readLine();
+      System.out.println("返回:"+response);
     } catch (IOException e) {
       e.printStackTrace();
     }

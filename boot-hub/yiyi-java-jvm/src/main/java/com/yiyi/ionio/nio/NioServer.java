@@ -3,10 +3,7 @@ package com.yiyi.ionio.nio;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
-import java.nio.channels.SelectionKey;
-import java.nio.channels.Selector;
-import java.nio.channels.ServerSocketChannel;
-import java.nio.channels.SocketChannel;
+import java.nio.channels.*;
 import java.util.Iterator;
 
 public class NioServer {
@@ -33,19 +30,20 @@ public class NioServer {
           while (iterator.hasNext()){
             //取出一个结果
             SelectionKey key = iterator.next();
-            //移除
-            iterator.remove();
+
             //判断是否是有效的请求
             if(key.isValid()){
-              if (key.isAcceptable())
+              if (key.isAcceptable()) {
                 accept(key);
-              if (key.isValid()&&key.isReadable()){
-                read(key);
               }
-              if (key.isValid()&&key.isWritable()){
-                write(key);
+
+              if (key.isReadable()){
+                read(key);
+//                write(key);
               }
             }
+            //移除
+            iterator.remove();
           }
         }
       }
@@ -76,7 +74,7 @@ public class NioServer {
   private static void write(SelectionKey key){
     SocketChannel socketChannel = (SocketChannel) key.channel();
     writeBuffer.clear();
-    writeBuffer.put("ok reply...".getBytes());
+    writeBuffer.put("你好客户端...".getBytes());
     writeBuffer.flip();// 这一步必须有
 
     try {
@@ -93,13 +91,30 @@ public class NioServer {
     }
   }
 
+  private static void forwardOtherClient(String message, SocketChannel self) {
+    try {
+      for (SelectionKey key : selector.keys()) {
+        Channel channel = key.channel();
+        if (channel instanceof SocketChannel && channel != self) {
+          SocketChannel dest = (SocketChannel) channel;
+          dest.write(ByteBuffer.wrap(message.getBytes()));
+        }
+      }
+    } catch (IOException e) {
+      e.printStackTrace();
+    }
+
+  }
+
   private static void read(SelectionKey key){
     readBuffer.clear();
     //accept方法中注册的客户端通道
     SocketChannel channel = (SocketChannel) key.channel();
     try {
       //读取数据
+      ByteBuffer buffer = ByteBuffer.allocate(1024);
       int count = channel.read(readBuffer);
+      //int count = channel.read(readBuffer);
       //判读是否有数据可读
       if(count == -1){
         key.channel().close();
@@ -107,6 +122,11 @@ public class NioServer {
         return;
       }
       //读取
+//      String msg = new String(buffer.array());
+//      System.out.println(msg + " from " + channel.getRemoteAddress());
+      // 服务器向其他客户端转发消息
+//      forwardOtherClient(msg, channel);
+
       readBuffer.flip();
       byte[] bytes = new byte[readBuffer.remaining()];
       readBuffer.get(bytes);
@@ -114,14 +134,25 @@ public class NioServer {
       System.out.println("收到信息：" + body);
       write(key);
     } catch (IOException e) {
+      System.out.println("read exception");
       try {
         //当客户端出现连接异常的时候，关闭当前客户端通道，取消缓存key
         channel.close();
         key.cancel();
       } catch (IOException e1) {
+        System.out.println("read close exception");
         e1.printStackTrace();
       }
       //e.printStackTrace();
+    }finally {
+      try {
+        //当客户端出现连接异常的时候，关闭当前客户端通道，取消缓存key
+        channel.close();
+        key.cancel();
+      } catch (IOException e1) {
+        System.out.println("read close finally exception");
+        e1.printStackTrace();
+      }
     }
   }
 
