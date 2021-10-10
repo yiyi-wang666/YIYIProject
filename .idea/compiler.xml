@@ -13,7 +13,9 @@
         <module name="business-domain" />
         <module name="redis-common" />
         <module name="yiyi-bams-boot" />
+        <module name="yiyi-spring-boot" />
         <module name="yiyi-spring-source" />
+        <module name="yiyi-java-jvm" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -37,6 +39,8 @@
       <module name="tech" options="-parameters" />
       <module name="technology-hub" options="-parameters" />
       <module name="yiyi-bams-boot" options="-parameters" />
+      <module name="yiyi-java-jvm" options="-parameters" />
+      <module name="yiyi-spring-boot" options="-parameters" />
       <module name="yiyi-spring-source" options="-parameters" />
     </option>
   </component>
